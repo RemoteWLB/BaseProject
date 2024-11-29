@@ -9,12 +9,13 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+from datetime import timedelta
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# APPEND_SLASH = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -38,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'rest_framework'
+    'rest_framework',
+    
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -76,9 +79,23 @@ WSGI_APPLICATION = 'BaseProject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "test",
+        'USER': "root",
+        'PASSWORD': "123465",
+        'HOST': "127.0.0.1",
+        'PORT': "3306",
+        # 'CONN_MAX_AGE': 3600,
+        # 'CONN_HEALTH_CHECKS': True,
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            # "init_command": "SET foreign_key_checks = 0;"
+        }
     }
 }
 

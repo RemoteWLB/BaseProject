@@ -6,9 +6,9 @@ from rest_framework import exceptions
 
 from jwt import InvalidSignatureError
 
-from remote.params import JWT_SALT, JWT_ALGO
+from project.params import JWT_SALT, JWT_ALGO
 from user.models import User
-from utils.self_rest_framework.exceptions import AuthenticationExpired
+from utils.exceptions import AuthenticationExpired
 
 DEFAULT_EXPIRE_TIME = datetime.timedelta(days=7)
 DEFAULT_REFRESH_TIME = datetime.timedelta(days=30)
