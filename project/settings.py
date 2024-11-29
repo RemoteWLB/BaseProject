@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     
     'rest_framework',
     
-    'user'
+    'user',
+    'twitter'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'BaseProject.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'BaseProject.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database
@@ -87,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "test",
         'USER': "root",
-        'PASSWORD': "123465",
+        'PASSWORD': "123456",
         'HOST': "127.0.0.1",
         'PORT': "3306",
         # 'CONN_MAX_AGE': 3600,
